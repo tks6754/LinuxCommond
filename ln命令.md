@@ -77,27 +77,28 @@ Linux中链接有两种，硬链接（Hard Link）和符号链接（Symbolic Lin
 - 软链接没有文件系统的限制，甚至可以跨系统建立
 
 
-
-    [root@server link-study]# ls -li
-    total 4
-    395902 -rw-r--r--. 3 root root    0 Aug 31 12:15 file
-    395903 drwxr-xr-x. 2 root root 4096 Aug 31 12:15 folder
-    395902 -rw-r--r--. 3 root root    0 Aug 31 12:15 hard.link1
-    395902 -rw-r--r--. 3 root root    0 Aug 31 12:15 hard.link2
-    395904 lrwxrwxrwx. 1 root root    4 Aug 31 12:16 soft.link -> file
-    [root@server link-study]# stat file
-      File: `file'
-      Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
-    Device: fd00h/64768d	Inode: 395902      Links: 3
-    Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
-    Access: 2016-08-31 12:15:50.188096551 +0800
-    Modify: 2016-08-31 12:15:50.188096551 +0800
-    Change: 2016-08-31 12:16:16.341094815 +0800
-    [root@server link-study]# stat hard.link1
-      File: `hard.link1'
-      Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
-    Device: fd00h/64768d	Inode: 395902      Links: 3
-    Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
-    Access: 2016-08-31 12:15:50.188096551 +0800
-    Modify: 2016-08-31 12:15:50.188096551 +0800
-    Change: 2016-08-31 12:16:16.341094815 +0800
+```
+[root@server link-study]# ls -li
+total 4
+395902 -rw-r--r--. 3 root root    0 Aug 31 12:15 file
+395903 drwxr-xr-x. 2 root root 4096 Aug 31 12:15 folder
+395902 -rw-r--r--. 3 root root    0 Aug 31 12:15 hard.link1
+395902 -rw-r--r--. 3 root root    0 Aug 31 12:15 hard.link2
+395904 lrwxrwxrwx. 1 root root    4 Aug 31 12:16 soft.link -> file
+[root@server link-study]# stat file
+  File: `file'
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: fd00h/64768d	Inode: 395902      Links: 3
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2016-08-31 12:15:50.188096551 +0800
+Modify: 2016-08-31 12:15:50.188096551 +0800
+Change: 2016-08-31 12:16:16.341094815 +0800
+[root@server link-study]# stat hard.link1
+  File: `hard.link1'
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: fd00h/64768d	Inode: 395902      Links: 3
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2016-08-31 12:15:50.188096551 +0800
+Modify: 2016-08-31 12:15:50.188096551 +0800
+Change: 2016-08-31 12:16:16.341094815 +0800
+```
