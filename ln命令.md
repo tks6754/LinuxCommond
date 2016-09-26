@@ -48,6 +48,34 @@ inode中保存了：唯一标识Inumber、创建时间（ctime）、修改时间
 
 读取文件的方式
 
+![file-inode](https://github.com/tks6754/Photos01/raw/master/file-inode.jpg)
+
+
+
+### 链接 ###
+
+Linux中链接有两种，硬链接（Hard Link）和符号链接（Symbolic Link，也称软链接）。
+
+一幅很常见的图
+
+![link](https://github.com/tks6754/Photos01/raw/master/linux-link.jpg)
+
+**硬链接**
+
+硬链接可以看成是一个“filename”，它“指向”的inode内容是完全相同的。相当于一个inode有多个“filename”，再根据inode找到数据块。所以，删除一个硬链接是不会删除数据块，只有删除一个数据块的最后一个硬链接才会删除数据块。
+
+- 硬链接是有着相同 inode 号仅文件名不同的文件，增加文件硬链接不会占用存储空间。
+- 只能对文件进行创建，文件夹不可以。
+- 硬链接只能在同一个文件系统中创建。
+
+**软链接**
+
+软链接是类似于Win下的快捷方式的概念，它是一个特殊的文本文件，文件内容是另一个文件的位置信息。所以，删除一个文件的所有软链接不会导致文件被删除，但原文件移动或删除，会导致软链接找不到文件，处于失效状态。
+
+- 软链接占用存储空间
+- 可以对文件以及文件夹创建
+- 软链接没有文件系统的限制，甚至可以跨系统建立
+
 
 
     [root@server link-study]# ls -li
@@ -73,16 +101,3 @@ inode中保存了：唯一标识Inumber、创建时间（ctime）、修改时间
     Access: 2016-08-31 12:15:50.188096551 +0800
     Modify: 2016-08-31 12:15:50.188096551 +0800
     Change: 2016-08-31 12:16:16.341094815 +0800
-
-
-### 链接 ###
-
-Linux中链接有两种，硬链接（Hard Link）和符号链接（Symbolic Link，也称软链接）。
-
-一幅很常见的图
-
-![link](https://github.com/tks6754/Photos01/raw/master/linux-link.jpg)
-
-**硬链接**
-
-硬链接可以看成是一个
